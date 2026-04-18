@@ -4,7 +4,7 @@ someWords = '''apple banana mango strawberry
 orange grape pineapple apricot lemon coconut watermelon 
 cherry papaya berry peach lychee muskmelon'''
 
-# .split() without arguments handles spaces, tabs, and newlines safely
+
 someWords = someWords.split() 
 word = random.choice(someWords)
 
@@ -14,7 +14,7 @@ if __name__ == '__main__':
     # Print the initial blank spaces
     print(' '.join(['_'] * len(word)))
 
-    guessed_letters = set() # Using a set is faster and prevents duplicates
+    guessed_letters = set() 
     chances = len(word) + 2
 
     try:
@@ -22,14 +22,13 @@ if __name__ == '__main__':
             print(f"\nChances remaining: {chances}")
             guess = input('Enter a letter to guess: ').lower()
 
-            # Input validation (Does not cost a chance)
-            if not guess.isalpha():
+            if not guess.isalpha():   # check if letter is entered
                 print('Enter only a letter!')
                 continue
-            elif len(guess) > 1:
+            elif len(guess) > 1:    # check if only a single letter is entered
                 print('Enter only a single letter!')
                 continue
-            elif guess in guessed_letters:
+            elif guess in guessed_letters:    # check if the letter was already gussed
                 print('You already guessed that letter!')
                 continue
 
